@@ -1,0 +1,120 @@
+@media print,
+(max-width: 1599px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    :root
+    {
+        --cont_padding: 24px;
+        --block_padding_s: 24px;
+        --inner_gap_b: 24px;
+    }
+
+
+
+    /*---------------
+        Load more
+    ---------------*/
+    .load_more .btn
+    {
+        height: 72px;
+    }
+
+
+
+    /*---------------
+        All llink
+    ---------------*/
+    .all_link a
+    {
+        height: 72px;
+    }
+
+
+
+    /*-----------
+        Cases
+    -----------*/
+    .cases .grid_row
+    {
+        --offset_h: var(--cont_padding);
+        --offset_v: var(--cont_padding);
+    }
+
+
+
+    /*-------------------
+        Contacts info
+    -------------------*/
+    .contacts_info
+    {
+        --action_form_width: 620px;
+    }
+
+
+    .contacts_info .phone
+    {
+        font-size: 48px;
+    }
+
+
+    .contacts_info .action_form
+    {
+        padding: var(--cont_padding_double);
+    }
+
+
+    .contacts_info .action_form .logo
+    {
+        width: 300px;
+    }
+
+
+
+    /*----------------
+        Advantages
+    ----------------*/
+    .advantages .grid_row
+    {
+        --offset_h: var(--cont_padding);
+        --offset_v: var(--cont_padding);
+    }
+
+
+    .advantages .item
+    {
+        padding: calc(var(--inner_gap_b) - 1px);
+    }
+
+
+
+    /*-------------
+        Tariffs
+    -------------*/
+    .tariffs .tariff
+    {
+        padding: var(--inner_gap_b);
+    }
+
+
+
+    /*-----------
+        Steps
+    -----------*/
+    .steps .grid_row
+    {
+        --offset_h: var(--cont_padding);
+        --offset_v: var(--cont_padding);
+    }
+
+
+
+    /*------------------
+        Presentation
+    ------------------*/
+    .presentation .video .btn .icon
+    {
+        width: 100px;
+    }
+}
