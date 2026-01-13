@@ -242,6 +242,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 
 
+	$('.rutube-video').click(function(e) {
+		e.preventDefault()
+
+		const id = $(this).data('video-id')
+
+		Fancybox.show([{
+			src: `https://rutube.ru/play/embed/${id}/`,
+			type: 'iframe'
+		}])
+	})
+
+
 	// Mob. menu
 	$('.mob_header .mob_menu_btn').click((e) => {
 		e.preventDefault()
@@ -366,9 +378,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		step: 1,
 		postfix: areaRangePostfix,
 		onChange: data => {
-			$('.calc .area_range .val').text(data.from + areaRangePostfix)
+			$('.calc .area_range .val').val(data.from + areaRangePostfix)
 		},
 	}).data('ionRangeSlider')
+
+	$('.calc .area_range .input').keyup(function () {
+		areaRange.update({
+			from: parseInt($('.calc .area_range .input').val().replace(/[^\d]/g, ""), 10),
+		})
+	})
 
 
 	// Cases
@@ -481,13 +499,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	$('header .menu_item > a.sub_link').click(function(e) {
 		e.preventDefault()
 
-		$(this).toggleClass('active')
+		$(this).toggleClass('open')
 
-		$(this).hasClass('active')
+		$('header .menu .service.sub_link').removeClass('active')
+		$('header .menu_service_info').fadeOut(200)
+
+		$(this).hasClass('open')
 			? $(this).next('.sub_menu').fadeIn(200)
 			: $(this).next('.sub_menu').fadeOut(200)
 
-		$(this).hasClass('active')
+		$(this).hasClass('open')
 			? $('.overlay').fadeIn(200)
 			: $('.overlay').fadeOut(200)
 	})
@@ -512,12 +533,37 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 
 
+	$('.services_grid .service.sub_link').click(function(e) {
+		if (WW > 767) {
+			e.preventDefault()
+
+			const menuLinkIndex = $(this).data('menu-link-index'),
+				menuLink = $('header .menu_item:nth-child('+ menuLinkIndex +') > a'),
+				info = $(this).data('menu-service-info'),
+				menuInfoLink = menuLink.next('.sub_menu').find('.service.sub_link[data-info="' + info + '"]')
+
+			menuLink.click()
+			menuInfoLink.click()
+		}
+	})
+
+
 	$('.overlay').click(function(e) {
 		e.preventDefault()
 
-		$('header .menu_item > a.sub_link, header .menu .service.sub_link').toggleClass('active')
+		$('header .menu_item > a.sub_link').removeClass('open')
+		$('header .menu .service.sub_link').removeClass('active')
 
 		$('header .menu .sub_menu, header .menu_service_info, .overlay').fadeOut(200)
+	})
+
+
+	// Form agree
+	$('.form .agree .checkbox input').on('change', function () {
+		const form = $(this).closest('.form')
+
+		form.find('.submit_btn')
+			.prop('disabled', !this.checked)
 	})
 })
 

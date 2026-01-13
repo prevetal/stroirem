@@ -342,6 +342,12 @@
     }
 
 
+    .cases .case
+    {
+        --info_height: 94px;
+    }
+
+
     .cases .case .area
     {
         padding-block: var(--cont_padding_half);

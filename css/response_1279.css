@@ -97,6 +97,12 @@
     /*------------
         Header
     ------------*/
+    header .menu .sub_menu
+    {
+        margin-top: var(--inner_gap_b);
+    }
+
+
     header .menu_service_info
     {
         padding-block: var(--inner_gap_b);
@@ -413,10 +419,11 @@
         scroll-snap-align: start;
     }
 
-
     .cases .case
     {
         padding: var(--block_padding);
+
+        --info_height: 0;
     }
 
 
@@ -429,7 +436,7 @@
 
     .cases .case .info
     {
-        display: flex;
+        opacity: 1;
     }
 
 
