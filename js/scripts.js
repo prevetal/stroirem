@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		let options = {
 			loop: true,
-			loopAdditionalSlides: 1,
 			speed: 500,
 			watchSlidesProgress: true,
 			slideActiveClass: 'active',
